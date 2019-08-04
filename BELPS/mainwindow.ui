@@ -26,7 +26,7 @@
     <property name="title">
      <string>Tools</string>
     </property>
-    <widget class="QPushButton" name="brushButton">
+    <widget class="QPushButton" name="penButton">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -91,7 +91,7 @@
       <string>Color</string>
      </property>
     </widget>
-    <widget class="QScrollBar" name="horizontalScrollBar">
+    <widget class="QScrollBar" name="penSizeScrollBar">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -177,5 +177,25 @@
  <resources>
   <include location="belresource.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>penSizeScrollBar</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SetPenSize()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>87</x>
+     <y>511</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>SetPenSize()</slot>
+ </slots>
 </ui>

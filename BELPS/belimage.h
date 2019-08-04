@@ -2,6 +2,7 @@
 #define BELIMAGE_H
 
 #include <QWidget>
+#include <QPen>
 
 class belImage : public QWidget
 {
@@ -10,15 +11,19 @@ public:
     belImage(QWidget *parent = nullptr);
     ~belImage();
     void paintEvent(QPaintEvent *ev);
+    void mouseMoveEvent(QMouseEvent *ev);
+    void mouseReleaseEvent(QMouseEvent *ev);
 
 signals:
 
 public slots:
     void Open();
+    void SetPenSize(int size, QColor color);
 
 protected:
     QImage srcImage;
-
+    QPoint mouseOldPos;
+    QPen pen;
 };
 
 #endif // BELIMAGE_H

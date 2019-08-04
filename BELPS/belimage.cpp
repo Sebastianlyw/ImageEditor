@@ -1,6 +1,7 @@
 #include "belImage.h"
 #include <QPainter>
 #include <QFileDialog>
+#include <QMouseEvent>
 
 //New QWidget component for displaying the image.
 belImage::belImage(QWidget *parent) : QWidget(parent)
@@ -24,6 +25,38 @@ void belImage::paintEvent(QPaintEvent *ev)
 
 }
 
+void belImage::mouseMoveEvent(QMouseEvent *e)
+{
+    if(srcImage.isNull())
+    {
+        return;
+    }
+
+    QPainter p(&srcImage);
+
+
+    p.setRenderHint(QPainter::Antialiasing);
+    p.setPen(pen);
+
+
+    if(mouseOldPos.isNull())
+    {
+        mouseOldPos  = e->pos();
+    }
+
+    p.drawLine(QLine(mouseOldPos, e->pos()));
+    mouseOldPos = e->pos();
+    update();
+}
+
+void belImage::mouseReleaseEvent(QMouseEvent *ev)
+{
+    //Clean ending position when evertime mouse is released.
+    //Otherwise this ending position will be used as starting position when
+    //new mouse clicked event triggered.
+    mouseOldPos = QPoint();
+}
+
 //Open image to edit.
 void belImage::Open()
 {
@@ -34,6 +67,7 @@ void belImage::Open()
     {
         return;
     }
+    mouseOldPos = QPoint();
 
     resize(srcImage.size());
     update();
@@ -42,4 +76,13 @@ void belImage::Open()
 
 
 
+}
+
+void belImage::SetPenSize(int size, QColor color)
+{
+    //Setting Qpen
+    pen.setWidth(size);
+    pen.setBrush(color);
+    pen.setCapStyle(Qt::RoundCap);
+    pen.setJoinStyle(Qt::RoundJoin);
 }
