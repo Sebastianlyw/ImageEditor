@@ -7,6 +7,12 @@ namespace Ui {
 class MainWindow;
 }
 
+enum BELSTATUS
+{
+    PEN,
+    ERARSER,
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -14,11 +20,12 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    BELSTATUS status = PEN;
 
 public slots:
     void SetPenSize();
     void SetPenColor();
-
+    void SetEraser();
 private:
     QColor penColor;
     Ui::MainWindow *ui;

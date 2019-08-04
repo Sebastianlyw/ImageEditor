@@ -48,6 +48,12 @@
        <height>24</height>
       </size>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPushButton" name="eraserButton">
      <property name="geometry">
@@ -70,6 +76,9 @@
        <width>24</width>
        <height>24</height>
       </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPushButton" name="colorButton">
@@ -210,9 +219,42 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>penButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SetPenSize()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>45</x>
+     <y>576</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>eraserButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SetEraser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>61</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>551</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>SetPenSize()</slot>
   <slot>SetPenColor()</slot>
+  <slot>SetEraser()</slot>
  </slots>
 </ui>

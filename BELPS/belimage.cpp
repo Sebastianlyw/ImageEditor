@@ -17,22 +17,22 @@ belImage::~belImage()
 void belImage::paintEvent(QPaintEvent *ev)
 {
     QPainter p(this);
-    if(!srcImage.isNull())
+    if(!outputImage.isNull())
     {
         //Redner origin image in editor.
-        p.drawImage(0,0, srcImage);
+        p.drawImage(0,0, outputImage);
     }
 
 }
 
 void belImage::mouseMoveEvent(QMouseEvent *e)
 {
-    if(srcImage.isNull())
+    if(outputImage.isNull())
     {
         return;
     }
 
-    QPainter p(&srcImage);
+    QPainter p(&outputImage);
 
 
     p.setRenderHint(QPainter::Antialiasing);
@@ -70,6 +70,7 @@ void belImage::Open()
     mouseOldPos = QPoint();
 
     resize(srcImage.size());
+    outputImage  = srcImage.copy();
     update();
 
 
@@ -83,6 +84,16 @@ void belImage::SetPenSize(int size, QColor color)
     //Setting Qpen
     pen.setWidth(size);
     pen.setBrush(color);
+    pen.setCapStyle(Qt::RoundCap);
+    pen.setJoinStyle(Qt::RoundJoin);
+}
+
+void belImage::SetEraser(int size)
+{
+    //Setting Qpen
+    pen.setWidth(size);
+    //Use origin image as brush
+    pen.setBrush(QBrush(srcImage));
     pen.setCapStyle(Qt::RoundCap);
     pen.setJoinStyle(Qt::RoundJoin);
 }

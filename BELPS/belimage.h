@@ -19,9 +19,11 @@ signals:
 public slots:
     void Open();
     void SetPenSize(int size, QColor color);
-
+    void SetEraser(int size);
 protected:
     QImage srcImage;
+    QImage outputImage;
+
     QPoint mouseOldPos;
     QPen pen;
 };
