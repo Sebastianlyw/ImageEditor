@@ -115,9 +115,9 @@
      </rect>
     </property>
     <property name="widgetResizable">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
-    <widget class="QWidget" name="imageArea">
+    <widget class="belImage" name="imageArea">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -166,6 +166,14 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>belImage</class>
+   <extends>QWidget</extends>
+   <header>belimage.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="belresource.qrc"/>
  </resources>

@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        belImage.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        belImage.h \
         mainwindow.h
 
 FORMS += \
