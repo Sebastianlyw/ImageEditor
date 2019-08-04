@@ -72,7 +72,7 @@
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="coloringButton">
+    <widget class="QPushButton" name="colorButton">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -88,7 +88,7 @@
       <string notr="true">background-color: rgb(0,0,0);</string>
      </property>
      <property name="text">
-      <string>Color</string>
+      <string/>
      </property>
     </widget>
     <widget class="QScrollBar" name="penSizeScrollBar">
@@ -194,8 +194,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>colorButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SetPenColor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>35</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>30</x>
+     <y>540</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>SetPenSize()</slot>
+  <slot>SetPenColor()</slot>
  </slots>
 </ui>

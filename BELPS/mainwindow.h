@@ -17,8 +17,10 @@ public:
 
 public slots:
     void SetPenSize();
+    void SetPenColor();
 
 private:
+    QColor penColor;
     Ui::MainWindow *ui;
 };
 
