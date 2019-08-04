@@ -39,8 +39,14 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>Resources/pen.png</normaloff>Resources/pen.png</iconset>
+      <iconset resource="belresource.qrc">
+       <normaloff>:/Resources/pen.png</normaloff>:/Resources/pen.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
      </property>
     </widget>
     <widget class="QPushButton" name="eraserButton">
@@ -54,6 +60,16 @@
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="belresource.qrc">
+       <normaloff>:/Resources/eraser.png</normaloff>:/Resources/eraser.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
      </property>
     </widget>
     <widget class="QPushButton" name="coloringButton">
@@ -150,6 +166,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="belresource.qrc"/>
+ </resources>
  <connections/>
 </ui>
