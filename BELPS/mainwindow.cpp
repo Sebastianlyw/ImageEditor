@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->actionOpen, SIGNAL(triggered()), ui->imageArea, SLOT(Open()));
+    connect(ui->actionSave, SIGNAL(triggered()), ui->imageArea, SLOT(Save()));
 
     penColor = DefaultColor;
     SetPenSize();
@@ -52,4 +53,10 @@ void MainWindow::SetEraser()
     status = ERARSER;
     ui->eraserButton->setChecked(true);
     ui->imageArea->SetEraser(ui->penSizeScrollBar->value());
+}
+
+void MainWindow::Save()
+{
+    ui->imageArea->Save();
+    ui->statusBar->showMessage("Save file sucessfully", 3000);
 }

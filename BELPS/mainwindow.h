@@ -26,6 +26,7 @@ public slots:
     void SetPenSize();
     void SetPenColor();
     void SetEraser();
+    void Save();
 private:
     QColor penColor;
     Ui::MainWindow *ui;

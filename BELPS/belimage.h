@@ -20,6 +20,7 @@ public slots:
     void Open();
     void SetPenSize(int size, QColor color);
     void SetEraser(int size);
+    void Save();
 protected:
     QImage srcImage;
     QImage outputImage;

@@ -72,12 +72,23 @@ void belImage::Open()
     resize(srcImage.size());
     outputImage  = srcImage.copy();
     update();
+}
 
+void belImage::Save()
+{
+    if(outputImage.isNull())
+    {
+        return;
+    }
 
-
-
+    QString fileName = QFileDialog::getSaveFileName(this, "Save file","","Supported format(*.png *.jpg *.bmp)");
+    if(fileName.isNull() || !outputImage.save(fileName))
+    {
+        return;
+    }
 
 }
+
 
 void belImage::SetPenSize(int size, QColor color)
 {
@@ -97,3 +108,4 @@ void belImage::SetEraser(int size)
     pen.setCapStyle(Qt::RoundCap);
     pen.setJoinStyle(Qt::RoundJoin);
 }
+
